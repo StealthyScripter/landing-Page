@@ -4048,7 +4048,6 @@ ul.horizontal-list li:last-child {
     background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
     background-size: auto, cover;
     background-position: center, center;
-    padding: 5em 0 3em 0;
 }
 
 #footer .inner {
@@ -4057,7 +4056,8 @@ ul.horizontal-list li:last-child {
     align-items: center; /* Center align items horizontally */
     margin: 0 auto;
     width: 55em;
-    padding: 0 2em;
+	height:auto;
+   
 }
 
 #footer .inner > * {
@@ -4097,7 +4097,7 @@ ul.horizontal-list li:last-child {
 #footer .inner .copyright {
     border-top: solid 2px rgba(255, 255, 255, 0.125);
     list-style: none;
-    margin: 2em 0 0 0; /* Margin adjusted to place below contact icons */
+    /* margin: 2em 0 0 0; Margin adjusted to place below contact icons */
     padding: 2em 0 0 0;
     width: 100%;
     display: flex;
@@ -4113,16 +4113,6 @@ ul.horizontal-list li:last-child {
     margin-left: 1em;
     padding: 0;
     padding-left: 1em;
-}
-
-#footer .inner .copyright li:first-child {
-    border-left: 0;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-#footer .inner .copyright li a {
-    color: inherit;
 }
 
 @media screen and (max-width: 1280px) {
