@@ -35,17 +35,19 @@
 				<section class="wrapper spotlight style1">
 					<div id="one">
 						<div>
-							<button>About</button>
-							<button>Resume</button>
-							<button>Skills</button>
-							<button>Projects</button>
+							<!-- <button>About</button> -->
+							<a href="https://docs.google.com/document/d/1znAGXKBxSiJ8mD-b37IrQg6qWOkOHY1VQTKvnh4py_I/export?format=pdf" download class="button">Resume</a>
+
+							<!-- <button>Skills</button> -->
+							<button ><a href="#four">Projects</a></button>
+							<button><a href="#footer">Connect</a></button>
 						</div>
 						<div>
 							<ul class= "horizontal-list">
 								<li><a href="https://github.com/StealthyScripter"><span class="icon brands fa-github"></span></a></li>
 								<li><a href="https://www.linkedin.com/in/brian-k-wendot/"><span class="icon brands fa-linkedin"></span></a></li>
 								<li><a href="koringobrian@gmail.com"><span class="icon solid fa-envelope"></span></a></li>
-								<li><a href="#"><span class="icon solid fa-phone"></span></a></li>
+								<li><a href="tel:+17693249062"><span class="icon solid fa-phone"></span></a></li>
 								<li><a href="#"><span class="icon brands fa-google-drive"></span></a></li>
 							</ul>
 					
@@ -94,30 +96,27 @@
 			<section id="footer">
 				<div class="inner">
 					<h2 class="major">Get in touch</h2>
-					<p>Are you looking to bring your web development ideas to life? Whether you're in need of a sleek, responsive website or a dynamic web application, I'm here to help! With a proven track record of delivering high-quality projects on time, I specialize in creating bespoke solutions that cater to your unique needs. Let's collaborate and transform your vision into reality. Reach out today to discuss how we can work together to achieve your goals and elevate your online presence.</p>
-					<form method="post" action="#">
-						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="4"></textarea>
-							</div>
+					<p>Are you looking to bring your web development ideas to life? Let's collaborate and transform your vision into reality.</p>
+					<form id="contact-form">
+					  <div class="fields">
+						<div class="field">
+						  <label for="name">Name</label>
+						  <input type="text" name="name" id="name" required />
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<div class="field">
+						  <label for="email">Email</label>
+						  <input type="email" name="email" id="email" required />
+						</div>
+						<div class="field">
+						  <label for="message">Message</label>
+						  <textarea name="message" id="message" rows="4" required></textarea>
+						</div>
+					  </div>
+					  <ul class="actions">
+						<li><input type="submit" value="Send Message" /></li>
+					  </ul>
 					</form>
-					<ul class="copyright">
-						<li>&copy; Brian Wendot. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
+				  </div>
 			</section>
 
 		</div>
@@ -128,6 +127,38 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+			<script type="text/javascript">
+				(function() {
+					emailjs.init("w5T7Gf_esrxj8rkIa");
+				})();
+
+
+			document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from reloading the page
+
+    // Basic validation (ensure all fields are filled)
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (name === "" || email === "" || message === "") {
+        alert('Please fill in all the fields.');
+        return;
+    }
+
+    // Send email
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Message sent successfully!');
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Message failed to send. Please try again later.');
+        });
+});
+
+			</script>
 
 	</body>
 </html>
